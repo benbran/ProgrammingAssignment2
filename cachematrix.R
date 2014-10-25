@@ -4,10 +4,10 @@
 ## you input 
 
 makeCacheMatrix <- function(x = matrix()) {
-
+	## Makes a special matrix in  the cache 
 	## first we make a collection of methods
 
-	# init 
+	# initialize the inverse object 
 	inv <- NULL
 
 	# set the matrix
@@ -37,7 +37,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## Solve the cached matrix created by makeCacheMatrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -50,15 +50,15 @@ cacheSolve <- function(x, ...) {
         	return(m)
         }
 
-        # get matrix
+        # get the matrix data 
         data <- x$get()
 
         # matrix multiplication to calculate inverse
         m <- solve(data) %*% data
 
-        # set inverse 
+        # set the inverse to the solved data 
         x$setinverse(m)
 
-        # ta-da!!
+        # return it. ta-da!!
         m
 }
